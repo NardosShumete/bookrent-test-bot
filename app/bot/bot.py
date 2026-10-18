@@ -2,6 +2,7 @@
 
 import logging
 from typing import Optional
+from telegram.request import HTTPXRequest
 from telegram.ext import (
     Application,
     ApplicationBuilder,
@@ -11,6 +12,7 @@ from telegram.ext import (
     MessageHandler,
     filters,
 )
+
 
 from app.bot.handlers import (
     ADD_BOOK_AUTHOR,
@@ -117,7 +119,14 @@ def create_bot_application(token: Optional[str] = None) -> Application:
     """
     bot_token = token or get_settings().raw_bot_token
 
-    application = ApplicationBuilder().token(bot_token).build()
+    request = HTTPXRequest(
+        connection_pool_size=16,
+        connect_timeout=20.0,
+        read_timeout=20.0,
+        write_timeout=20.0,
+        pool_timeout=10.0,
+    )
+    application = ApplicationBuilder().token(bot_token).request(request).build()
 
     # Phase 8: Multi-step customer registration & verification conversation
     registration_conversation = ConversationHandler(
