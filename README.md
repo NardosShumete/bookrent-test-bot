@@ -1,0 +1,1 @@
+# bookrent-test-bot
