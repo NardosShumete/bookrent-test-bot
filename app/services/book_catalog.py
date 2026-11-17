@@ -9,6 +9,7 @@ from app.models.book import Book, BookCopy
 from app.models.enums import BookCopyStatus
 from app.models.exceptions import (
     CopyNotFoundError,
+    InvalidISBNError,
     MissingBookDetailsError,
     UnauthorizedError,
 )
@@ -187,7 +188,7 @@ def search_books(
     search_term = f"%{cleaned_query}%"
     try:
         isbn_term = clean_isbn(cleaned_query)
-    except Exception:
+    except InvalidISBNError:
         isbn_term = cleaned_query
 
     books = (
@@ -260,7 +261,7 @@ def get_book_inventory_details(
         try:
             canonical = normalize_isbn(identifier)
             book = session.query(Book).filter(Book.isbn == canonical).first()
-        except Exception:
+        except InvalidISBNError:
             pass
 
     if book is None:

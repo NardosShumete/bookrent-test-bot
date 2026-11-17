@@ -134,6 +134,14 @@ from app.services.rental_request import (
     reject_rental_request,
     submit_rental_request,
 )
+from app.bot.customer_ui import (
+    browse_books as customer_browse_books,
+    customer_payments,
+    customer_profile,
+    customer_rentals,
+    customer_search_prompt,
+    customer_search_results,
+)
 
 
 logger = logging.getLogger(__name__)
@@ -4339,6 +4347,14 @@ async def handle_menu_button(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
     # Intercept query if user is in an active search mode
     user_data = getattr(context, "user_data", None)
+    if (
+        isinstance(user_data, dict)
+        and user_data.get("customer_search")
+        and not text.startswith("❌")
+    ):
+        user_data.pop("customer_search", None)
+        await customer_search_results(update, context, text)
+        return
     awaiting_search = user_data.get("awaiting_search_mode") if isinstance(user_data, dict) else None
     if awaiting_search and not text.startswith(("/", "⬅️", "❌", "➕", "👥", "🚫", "📚", "📝", "💳", "⏳", "⚠️", "📦", "📊", "❓", "🌐", "🔎", "📋")):
         user_data.pop("awaiting_search_mode", None)
@@ -4514,11 +4530,7 @@ async def handle_menu_button(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 parse_mode=ParseMode.HTML,
             )
             return
-        await update.effective_message.reply_text(
-            t("desc_cust_search", lang),
-            reply_markup=get_book_search_menu_keyboard(lang),
-            parse_mode=ParseMode.HTML,
-        )
+        await customer_search_prompt(update, context)
         return
 
     if text in (
@@ -4533,8 +4545,7 @@ async def handle_menu_button(update: Update, context: ContextTypes.DEFAULT_TYPE)
                 parse_mode=ParseMode.HTML,
             )
             return
-        await update.effective_message.reply_text(t("desc_cust_browse", lang), parse_mode=ParseMode.HTML)
-        await books_command(update, context)
+        await customer_browse_books(update, context)
         return
 
     if text in (
@@ -4558,8 +4569,25 @@ async def handle_menu_button(update: Update, context: ContextTypes.DEFAULT_TYPE)
         "📋 My Rentals",
         "📋 ኪራዮቼ",
     ):
-        await update.effective_message.reply_text(t("desc_cust_myrentals", lang), parse_mode=ParseMode.HTML)
-        await myrentals_command(update, context)
+        await customer_rentals(update, context)
+        return
+
+    if text in (
+        t("btn_cust_payments", "en"),
+        t("btn_cust_payments", "am"),
+        "💰 My Payments",
+        "💰 ክፍያዎቼ",
+    ):
+        await customer_payments(update, context)
+        return
+
+    if text in (
+        t("btn_cust_profile", "en"),
+        t("btn_cust_profile", "am"),
+        "👤 My Profile",
+        "👤 መገለጫዬ",
+    ):
+        await customer_profile(update, context)
         return
 
     if text in (

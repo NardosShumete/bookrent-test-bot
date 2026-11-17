@@ -97,6 +97,15 @@ from app.bot.handlers import (
     start_command,
     view_id_photo_callback,
 )
+from app.bot.customer_ui import (
+    browse_books,
+    customer_payments,
+    customer_profile,
+    customer_rentals,
+    customer_search_prompt,
+    customer_search_results,
+    customer_ui_callback,
+)
 from app.config import get_settings
 from app.scheduler.overdue_job import setup_overdue_scheduler
 
@@ -305,6 +314,12 @@ def create_bot_application(token: Optional[str] = None) -> Application:
     application.add_handler(
         CallbackQueryHandler(owner_return_action_callback, pattern=r"^(ret_act:|ret_select:)")
     )
+    application.add_handler(
+        CallbackQueryHandler(
+            customer_ui_callback,
+            pattern=r"^customer:(home|cancel|books:|search:|book:|request:|confirm:|rental:|extend:)",
+        )
+    )
 
     # Reply keyboard navigation text buttons
     application.add_handler(
@@ -319,5 +334,3 @@ def create_bot_application(token: Optional[str] = None) -> Application:
 
     logger.info("Telegram Bot Application initialized successfully with Phase 8 handlers.")
     return application
-
-

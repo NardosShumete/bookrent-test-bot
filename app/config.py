@@ -4,7 +4,7 @@ import re
 from decimal import Decimal
 from functools import lru_cache
 from typing import Any, List, Optional
-from zoneinfo import ZoneInfo
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from pydantic import Field, SecretStr, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -188,7 +188,7 @@ class Settings(BaseSettings):
             try:
                 ZoneInfo(tz_str)
                 return tz_str
-            except Exception as exc:
+            except (TypeError, ValueError, ZoneInfoNotFoundError) as exc:
                 raise ValueError(
                     f"Invalid RENTAL_TIMEZONE '{v}': must be a valid IANA timezone name (e.g. 'UTC', 'Africa/Nairobi')."
                 ) from exc

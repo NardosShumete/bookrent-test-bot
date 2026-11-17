@@ -214,7 +214,7 @@ Configure the following variables:
 | `LOG_LEVEL` | No | `INFO` | Logging level: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL` |
 | `ADMIN_USER_IDS` | No | `""` | Comma-separated Telegram User IDs with owner permissions |
 | `RENTAL_TIMEZONE` | No | `UTC` | IANA timezone for rental deadlines (e.g. `Africa/Addis_Ababa`, `UTC`) |
-| `OVERDUE_FEE_PER_DAY` | No | `5.00` | Overdue rate in ETB per calendar day |
+| `OVERDUE_DAILY_FEE` | No | `5.00` | Overdue rate in ETB per calendar day |
 | `EXTENSION_FEE` | No | `10.00` | Fixed 5-day rental extension fee in ETB |
 | `EXTENSION_DURATION_DAYS`| No | `5` | Duration added per approved rental extension |
 | `SCHEDULER_INTERVAL_HOURS`| No | `24` | Interval for automatic overdue charging job |

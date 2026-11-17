@@ -17,6 +17,17 @@ def test_valid_configuration(valid_env_vars: dict) -> None:
     assert settings.raw_database_url == "sqlite:///:memory:"
 
 
+def test_overdue_daily_fee_uses_canonical_environment_variable(
+    valid_env_vars: dict, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Verify the documented overdue fee variable controls the configured fee."""
+    monkeypatch.setenv("OVERDUE_DAILY_FEE", "7.50")
+
+    settings = Settings()
+
+    assert settings.overdue_daily_fee == 7.50
+
+
 def test_missing_telegram_token(monkeypatch: pytest.MonkeyPatch) -> None:
     """Verify ValidationError when TELEGRAM_BOT_TOKEN is missing."""
     monkeypatch.delenv("TELEGRAM_BOT_TOKEN", raising=False)

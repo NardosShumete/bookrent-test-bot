@@ -1,6 +1,7 @@
 """Application entry point for BookRent Bot."""
 
 import argparse
+import asyncio
 import logging
 import sys
 from pydantic import ValidationError
@@ -85,6 +86,9 @@ def main() -> None:
         application = create_bot_application()
 
         logger.info("Starting Telegram Bot polling loop. Press Ctrl+C to stop.")
+        # Python 3.14 no longer creates a main-thread event loop implicitly,
+        # while python-telegram-bot's synchronous runner expects one.
+        asyncio.set_event_loop(asyncio.new_event_loop())
         application.run_polling(drop_pending_updates=True)
     except KeyboardInterrupt:
         logger.info("Shutdown requested via KeyboardInterrupt. Stopping bot cleanly...")

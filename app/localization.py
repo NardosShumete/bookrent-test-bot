@@ -126,6 +126,66 @@ TRANSLATIONS: Dict[str, Dict[str, str]] = {
         "en": "⏳ My Extensions",
         "am": "⏳ የማራዘሚያ ጥያቄዎቼ",
     },
+    "btn_cust_payments": {
+        "en": "💰 My Payments",
+        "am": "💰 ክፍያዎቼ",
+    },
+    "btn_cust_profile": {
+        "en": "👤 My Profile",
+        "am": "👤 መገለጫዬ",
+    },
+    "btn_cust_home": {
+        "en": "🏠 Home",
+        "am": "🏠 መነሻ",
+    },
+    "btn_cust_back": {
+        "en": "⬅️ Back",
+        "am": "⬅️ ተመለስ",
+    },
+    "btn_cust_cancel": {
+        "en": "❌ Cancel",
+        "am": "❌ ሰርዝ",
+    },
+    "cust_books_title": {
+        "en": "📚 <b>Available Books</b>\nPage {page}/{pages}",
+        "am": "📚 <b>ያሉ መጻሕፍት</b>\nገጽ {page}/{pages}",
+    },
+    "cust_book_details": {
+        "en": "📖 <b>{title}</b>\n\nAuthor: <b>{author}</b>\nISBN: <code>{isbn}</code>\n"
+             "Available copies: <b>{available}</b>\nRental fee: <b>{fee} ETB</b>\n"
+             "Rental period: <b>10 days</b>\n\n{description}",
+        "am": "📖 <b>{title}</b>\n\nደራሲ፦ <b>{author}</b>\nISBN፦ <code>{isbn}</code>\n"
+             "ያሉ ቅጂዎች፦ <b>{available}</b>\nየኪራይ ዋጋ፦ <b>{fee} ብር</b>\n"
+             "የኪራይ ጊዜ፦ <b>10 ቀናት</b>\n\n{description}",
+    },
+    "cust_search_prompt": {
+        "en": "🔍 What book are you looking for? Enter a title, author, or ISBN.",
+        "am": "🔍 የትኛውን መጽሐፍ ይፈልጋሉ? ርዕስ፣ ደራሲ ወይም ISBN ያስገቡ።",
+    },
+    "cust_search_empty": {
+        "en": "No books matched <b>{query}</b>.",
+        "am": "ለ<b>{query}</b> የተገኘ መጽሐፍ የለም።",
+    },
+    "cust_no_books": {
+        "en": "📚 No books are currently available.",
+        "am": "📚 በአሁኑ ጊዜ ያሉ መጻሕፍት የሉም።",
+    },
+    "cust_pending_rental": {
+        "en": "⏳ You already have a pending request for this book.",
+        "am": "⏳ ለዚህ መጽሐፍ አስቀድመው የጠየቁት ጥያቄ በመጠባበቅ ላይ ነው።",
+    },
+    "cust_rentals_title": {
+        "en": "📖 <b>My Rentals</b>",
+        "am": "📖 <b>ኪራዮቼ</b>",
+    },
+    "cust_payments_title": {
+        "en": "💰 <b>My Payments</b>",
+        "am": "💰 <b>ክፍያዎቼ</b>",
+    },
+    "cust_profile_title": {
+        "en": "👤 <b>My Profile</b>",
+        "am": "👤 <b>መገለጫዬ</b>",
+    },
     "btn_change_language": {
         "en": "🌐 Change Language",
         "am": "🌐 ቋንቋ ቀይር",
@@ -133,6 +193,126 @@ TRANSLATIONS: Dict[str, Dict[str, str]] = {
     "btn_cust_help": {
         "en": "❓ Help",
         "am": "❓ እገዛ",
+    },
+    "cust_home_prompt": {
+        "en": "Choose an option below.",
+        "am": "ከታች ያለውን አማራጭ ይምረጡ።",
+    },
+    "cust_status_required": {
+        "en": "⏳ Your account status is <b>{status}</b>.",
+        "am": "⏳ የመለያዎ ሁኔታ <b>{status}</b> ነው።",
+    },
+    "cust_approved_required": {
+        "en": "⏳ Your account must be APPROVED before using this feature.",
+        "am": "⏳ ይህን አገልግሎት ከመጠቀምዎ በፊት መለያዎ መጽደቅ አለበት።",
+    },
+    "cust_invalid_book": {
+        "en": "Invalid book selection.",
+        "am": "የተሳሳተ የመጽሐፍ ምርጫ።",
+    },
+    "cust_invalid_request": {
+        "en": "Invalid rental request.",
+        "am": "የተሳሳተ የኪራይ ጥያቄ።",
+    },
+    "cust_book_allocated": {
+        "en": "This book was just allocated.",
+        "am": "ይህ መጽሐፍ አሁን ተመድቧል።",
+    },
+    "cust_rental_confirmation": {
+        "en": "Confirm rental request for <b>{title}</b>?\nRental fee: <b>{fee} ETB</b>\nRental period: <b>10 days</b>",
+        "am": "ለ<b>{title}</b> የኪራይ ጥያቄ ያረጋግጡ?\nየኪራይ ዋጋ፦ <b>{fee} ብር</b>\nየኪራይ ጊዜ፦ <b>10 ቀናት</b>",
+    },
+    "cust_request_submitted": {
+        "en": "✅ Rental request <b>#{id}</b> submitted. The library owner will review it.",
+        "am": "✅ የኪራይ ጥያቄ <b>#{id}</b> ተልኳል። አስተዳዳሪው ይገመግመዋል።",
+    },
+    "cust_rentals_approval_required": {
+        "en": "⏳ Your account must be APPROVED before viewing rentals.",
+        "am": "⏳ ኪራዮችን ከማየትዎ በፊት መለያዎ መጽደቅ አለበት።",
+    },
+    "cust_payment_balance": {
+        "en": "Collateral balance: <b>{amount} ETB</b>",
+        "am": "የዋስትና ቀሪ ሂሳብ፦ <b>{amount} ብር</b>",
+    },
+    "cust_profile_details": {
+        "en": "Name: <b>{name}</b>\nStatus: <b>{status}</b>\nPhone: <code>{phone}</code>\nRegistered: {registered}\nLanguage: <b>{language}</b>",
+        "am": "ስም፦ <b>{name}</b>\nሁኔታ፦ <b>{status}</b>\nስልክ፦ <code>{phone}</code>\nየተመዘገበበት ቀን፦ {registered}\nቋንቋ፦ <b>{language}</b>",
+    },
+    "cust_book_unavailable": {
+        "en": "This book is not available.",
+        "am": "ይህ መጽሐፍ አይገኝም።",
+    },
+    "cust_book_currently_unavailable": {
+        "en": "This book is currently unavailable.",
+        "am": "ይህ መጽሐፍ በአሁኑ ጊዜ አይገኝም።",
+    },
+    "btn_cust_request_rental": {
+        "en": "📖 Request Rental",
+        "am": "📖 ኪራይ ይጠይቁ",
+    },
+    "btn_cust_confirm": {
+        "en": "✅ Confirm",
+        "am": "✅ አረጋግጥ",
+    },
+    "btn_cust_rental_details": {
+        "en": "📖 Rental #{id}",
+        "am": "📖 ኪራይ #{id}",
+    },
+    "btn_cust_extend": {
+        "en": "⏳ Request 5-day extension",
+        "am": "⏳ የ5 ቀን ማራዘሚያ ይጠይቁ",
+    },
+    "cust_invalid_rental": {
+        "en": "Invalid rental.",
+        "am": "የተሳሳተ ኪራይ።",
+    },
+    "cust_rental_not_found": {
+        "en": "Rental not found.",
+        "am": "ኪራዩ አልተገኘም።",
+    },
+    "cust_rental_details": {
+        "en": "📖 <b>Rental #{id}</b>\nBook: <i>{title}</i>\nStatus: <b>{status}</b>\nDue: <b>{due}</b>",
+        "am": "📖 <b>ኪራይ #{id}</b>\nመጽሐፍ፦ <i>{title}</i>\nሁኔታ፦ <b>{status}</b>\nመመለሻ ቀን፦ <b>{due}</b>",
+    },
+    "cust_overdue_details": {
+        "en": "\n⚠️ <b>OVERDUE</b>: {days} day(s)\n{label}: <b>{amount} ETB</b>",
+        "am": "\n⚠️ <b>ጊዜው አልፏል</b>፦ {days} ቀን\n{label}፦ <b>{amount} ብር</b>",
+    },
+    "cust_overdue_estimate": {
+        "en": "Estimated accrued penalty",
+        "am": "የተገመተ የተከማቸ ቅጣት",
+    },
+    "cust_overdue_recorded": {
+        "en": "Recorded overdue charges",
+        "am": "በመዝገብ የተመዘገበ የዘገየ ክፍያ",
+    },
+    "cust_rentals_empty": {
+        "en": "No rental requests or rentals yet.",
+        "am": "እስካሁን የኪራይ ጥያቄ ወይም ኪራይ የለም።",
+    },
+    "cust_extension_requested": {
+        "en": "✅ Extension requested for rental <b>#{id}</b>.\nNew proposed due date: <b>{due}</b>\nExtension fee: <b>10 ETB</b>. Awaiting administrator approval.",
+        "am": "✅ ለኪራይ <b>#{id}</b> የማራዘሚያ ጥያቄ ተልኳል።\nአዲስ የመመለሻ ቀን፦ <b>{due}</b>\nየማራዘሚያ ክፍያ፦ <b>10 ብር</b>። የአስተዳዳሪ ፈቃድ ይጠብቁ።",
+    },
+    "cust_payment_empty": {
+        "en": "No financial transactions recorded yet.",
+        "am": "እስካሁን የተመዘገበ የገንዘብ ግብይት የለም።",
+    },
+    "cust_profile_register": {
+        "en": "Please register first with /start.",
+        "am": "እባክዎን መጀመሪያ /start በመላክ ይመዝገቡ።",
+    },
+    "cust_cancelled": {
+        "en": "Cancelled.",
+        "am": "ተሰርዟል።",
+    },
+    "cust_invalid_page": {
+        "en": "Invalid page.",
+        "am": "የተሳሳተ ገጽ።",
+    },
+    "cust_search_expired": {
+        "en": "This search has expired. Please search again.",
+        "am": "ይህ ፍለጋ ጊዜው አልፎታል። እባክዎን እንደገና ይፈልጉ።",
     },
 
     # --------------------------------------------------------------------------
@@ -846,11 +1026,11 @@ def get_customer_reply_keyboard(lang: str = DEFAULT_LANGUAGE) -> ReplyKeyboardMa
                 KeyboardButton(t("btn_cust_browse", lang)),
             ],
             [
-                KeyboardButton(t("btn_cust_rent", lang)),
                 KeyboardButton(t("btn_cust_myrentals", lang)),
+                KeyboardButton(t("btn_cust_payments", lang)),
             ],
             [
-                KeyboardButton(t("btn_cust_extensions", lang)),
+                KeyboardButton(t("btn_cust_profile", lang)),
                 KeyboardButton(t("btn_change_language", lang)),
             ],
             [
@@ -1127,4 +1307,3 @@ def get_owner_return_action_keyboard(lang: str, rental_id: int) -> InlineKeyboar
             ],
         ]
     )
-

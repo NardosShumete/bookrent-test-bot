@@ -53,6 +53,23 @@ def test_run_preflight_checks_invalid_config(monkeypatch: pytest.MonkeyPatch) ->
     assert run_preflight_checks() is False
 
 
+def test_main_thread_event_loop_is_available_for_polling() -> None:
+    """Verify the runtime can provide the loop expected by PTB's sync runner."""
+    import asyncio
+
+    try:
+        previous_loop = asyncio.get_event_loop()
+    except RuntimeError:
+        previous_loop = None
+    loop = asyncio.new_event_loop()
+    try:
+        asyncio.set_event_loop(loop)
+        assert asyncio.get_event_loop() is loop
+    finally:
+        loop.close()
+        asyncio.set_event_loop(previous_loop)
+
+
 def test_create_bot_application_initialization(valid_env_vars: dict) -> None:
     """Verify create_bot_application creates a python-telegram-bot Application with registered handlers."""
     app = create_bot_application()
@@ -92,4 +109,3 @@ def test_setup_overdue_scheduler_no_job_queue() -> None:
     mock_app.job_queue = None
     result = setup_overdue_scheduler(mock_app)
     assert result is False
-
